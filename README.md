@@ -1,10 +1,11 @@
-# KAG3 for 吉里吉里Z
+# KAG3 for KiriKiriZ
 
-本フォルダ以下のデータ等は、KAG3 を吉里吉里Zで動くように最低限修正を加えたものです。  
-β版に添付していたものを UTF-8 に変換しています。  
-メニューは吉里吉里2の時と異なり、フルスクリーン時でも常時表示されるようになっています。   
+The "data" folder has been minimally modified to work with KiriKiriZ. 
+We are converting the things that were attached to the beta version to UTF-8.
+Unlike in Kirikiri 2, the menu is always visible, even in full screen.   
 
 ---
 # KAG3 License
-Copyright (C)2001-2009, W.Dee and contributors  改変・配布は自由です
+Copyright (C)2001-2009, W.Dee and contributors.
+Free to modify and distribute.
 
