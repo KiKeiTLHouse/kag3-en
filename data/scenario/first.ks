@@ -1,4 +1,4 @@
 [wait time=200]
-*start|スタート
+*start|Start
 [cm]
-こんにちは。
+Hello World!
