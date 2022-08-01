@@ -1,39 +1,40 @@
-// AnimationLayer.tjs - アニメーションを行うレイヤ
-// Copyright (C)2001-2009, W.Dee and contributors  改変・配布は自由です
+// AnimationLayer.tjs - Layer for animations
+// Copyright (C)2001-2009, W.Dee and contributors
+// Free to be modified or distributed
 
 
 /*
--- ２つのアニメーションの種類 ---------------------------------------------
+-- Two types of animations ---------------------------------------------
 
-　KAGにアニメーションをさせるためには２つの種類があります。
-　一つは「セル画像」を用いるセルを基本としたアニメーションで、この場合、
-「ベース画像」の上に「セル画像」の各部分を切り取って順次貼り付けるような感
-じでアニメーションを行います。
+　There are two types of animations you can use to animate your KAG game.
+One is a cell-based animation that uses a "cell image". 
+In this case, the animation is performed by cutting and pasting 
+each part of the "cel image" onto the "base image" in order.
 
-　もう一つは、KAG 3.05 beta 3 から使用可能になった クリッピングを基本とした
-アニメーション方法で、この場合はセル画像は必要ありません。
-　image タグに clipleft, cliptop, clipwidth, clipheight の４つの属性があり
-ますが、(概念的には)これを順次変えてやることで、大きな画像の一部分を順次表
-示するようなアニメーションを行います。表示する画像を何枚も横に並べ、それを
-順次表示するような用途に向いています。
+　The other is the clipping based animation method available 
+since KAG 3.05 beta 3, in which case no cells are needed.
+　In image tags, there are four attributes: clipleft, cliptop, clipwidth, and clipheight. 
+These represent, conceptually, an animation that progressively displays a portion of a larger image.
+ This is suitable for displaying several images side by side and sequentially.
 
-　負荷はクリッピングを基本としたアニメーション方式のほうが軽いです。デモ
-シーンにおいて、レイヤの全域を書き換えるようなアニメーションを行う場合はク
-リッピング方式のアニメーションのほうが良いでしょう。
-　逆に、目パチ、口パクのような用途にはセル方式のアニメーションの方が小回り
-が利いて使いやすいでしょう。
+　It takes less resources for the clipping-based animation method.
+ Clipping-based animation is better for demo scenes 
+ where the entire area of the layer is being rewritten.
+　On the other hand, cell-based animations are more versatile and easier to use 
+for purposes such as blinking eyes and mouth movements.
 
 
--- セル方式のアニメーションの記述の仕方 -----------------------------------
+-- How to write cell-based animations -----------------------------------
 
-　まず、アニメーションを行わせるためには、「ベース画像」と「セル画像」が必
-要になります。ベース画像はアニメーションの下地となる画像です。セル画像はア
-ニメーションの「部品」が並べてある画像です。ベース画像の上にアニメーション
-画像を部分的にコピーして重ねていくという方法を用います。
+　
+First, you will need a "base image" and a "cell image" in order to animate. 
+The base image is the image that will serve as the background for the animation.
+A cell image is an image in which the "parts" of an animation are arranged. 
+We use a method where we partially copy and overlay the animation image on top of the base image.
 
-　ベース画像は image タグで読み込まれます (ここで用いるベースとは、KAGの背
-景レイヤの base とは違う意味です )。セル画像は、アニメーション定義ファイル
-内の loadcell タグで読み込みます。
+　The base image is loaded with the image tag 
+(The base used here is different from the base of the KAG Background Layer).
+Cell images are loaded with the loadcell tag in the animation definition file.
 
 　アニメーション定義ファイルは、ベース画像とファイルが同じで、拡張子が asd
 のテキストファイルです。
